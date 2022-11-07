@@ -26,7 +26,10 @@ function getRecipesFromStorage() {
   //           be no more than a few lines.
 
   let recipes = JSON.parse(localStorage.getItem('recipes'));
-  if (recipes === null) return [];
+  if (recipes === null) {
+    localStorage.setItem('recipes', "[]");
+    return [];
+  }
   return recipes;
 }
 
